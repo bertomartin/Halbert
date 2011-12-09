@@ -8,10 +8,11 @@ less effort.  It includes the stack that I'm currently using at work running
 on a small, lite server, Sinatra.
 
 The stack:
-  * Coffeescript
-  * SCSS
-  * JQuery
-  * Twitter Bootstrap
+
+  1.  Coffeescript
+  1.  SCSS
+  1.  JQuery
+  1.  Twitter Bootstrap
 
 I plan on creating various branches off of this, but the nice thing is that
 all that's required is a `rackup` and then you're good to try something
@@ -22,4 +23,4 @@ to execute a "\sc" `sass compile`.
 
 Named after Tom Halbert, my first CS professor in high school who admonished
 students to create "shell" for easy cut and pasting so that we could get to the
-coding faster.
+
