@@ -19,8 +19,14 @@ all that's required is a `rackup` and then you're good to try something
 out in the JS console, write some custom SCSS (use my included vim code
 to execute a "\sc" `sass compile`.
 
+I admit, it's nothing particularly groundbreaking, but it lets you just
+get to hacking with nice, pretty tools.
+
 ## Naming
 
 Named after Tom Halbert, my first CS professor in high school who admonished
 students to create "shell" for easy cut and pasting so that we could get to the
 
+## Author
+
+Steven G. Harms 
