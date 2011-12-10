@@ -9,6 +9,8 @@ GEM
     eventmachine (0.12.10)
     execjs (1.2.12)
       multi_json (~> 1.0)
+    guard (0.8.8)
+      thor (~> 0.14.6)
     isolate (3.2.1)
     multi_json (1.0.4)
     rack (1.3.5)
@@ -27,6 +29,7 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
+    thor (0.14.6)
     tilt (1.3.3)
 
 PLATFORMS
@@ -34,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  guard
   isolate
   sass
   sinatra
