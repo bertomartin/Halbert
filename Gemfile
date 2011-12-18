@@ -3,8 +3,11 @@ source :rubygems
 gem 'sinatra'
 gem 'slim'
 gem 'sass'
-gem 'isolate'
 gem 'coffee-script'
 gem 'thin'
 gem 'tilt'
-gem 'evergreen'
+gem 'heroku'
+
+group :development do
+  gem 'evergreen'
+end

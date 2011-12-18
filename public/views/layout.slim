@@ -2,15 +2,26 @@ doctype 5
 
 head
   header
-    title Robo Testing
-    link href='/css/bootstrap.css' media='screen' rel='stylesheet' type='text/css'
-    link href='/less/bootstrap.less' media='all' rel='stylesheet/less' type='other'
-    script src='/javascripts/underscore.js'
-    script src='/javascripts/jquery.js'
+    title Halbert:  A Place to Play with Programming
 
-    /! Here are the user custom resource files
-    link href='/css/custom.css' media='screen' rel='stylesheet' type='text/css'
-    script src='/javascripts/custom.js'
+    /* Make it look pretty*/
+    link href='/stylesheets/setup/bootstrap.css' media='screen' rel='stylesheet' type='text/css'
+    link href='/less/bootstrap.less' media='all' rel='stylesheet/less' type='other'
+
+    /* Include some baseline aweseome JS libraries*/
+    script src='/javascripts/setup/underscore.js'
+    script src='/javascripts/setup/jquery.js'
+
+    /* Here are the user custom resource files*/
+    link href='/stylesheets/custom/custom.css' media='screen' rel='stylesheet' type='text/css'
+    script src='/javascripts/custom/custom.js'
+
+    /* Here is where your own JS files are loaded */
+    - custom_js_path = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
+    - my_js_files = Dir.glob(File.join(custom_js_path, *['*.js'])).find_all{|f| f !~ /\/custom.js$/}
+    - my_js_files.each do |f|
+      script src="/javascripts/custom/#{File.basename f}"
+
 body
   == yield
 

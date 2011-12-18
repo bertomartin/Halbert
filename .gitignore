@@ -1,3 +1,8 @@
 .DS_Store
 .rvmrc
 .sass-cache
+**/*.css
+**/*.js
+/public/stylesheets/custom/*.css
+/public/javascripts/custom/*.js
+

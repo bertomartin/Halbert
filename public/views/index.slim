@@ -1,12 +1,37 @@
-h1 Hello World
-
 .content
+  h1 Welcome to Halbert
+
+  h2 What is Halbert?
+
   p
-  ol
-    li foo
-    li bar
-    li bin
+    ' Halbert is an environment for bootstrapping an idea or for getting
+    ' the hang of a concept.  With JQuery, Coffeescript, Slim Templates,
+    ' Twitter's bootstrap styling, and SCSS you've got the basics of
+    ' everything you need to get going quickly.
+
+  h2 How can I customize it?
+
+  p
+    ' The typical user will clone the github repository.  Thereafter go to
+    ' town!  Here's a breakdown of the files you'll want to play with:
+
+  p
+    b public/javascripts/custom:
+    ' put your *.coffee files here.  You
+    ' will need to compile them yourself (either through a vim hook as
+    ' provided in vim_options.vim, or by manually compiling them with the
+    ' coffee command, or through the Rake task 'assets:cs'
+  p
+    b public/stylesheets/custom:
+    ' put your custom SCSS in 'custom.css'.
+    ' You, again, will need to compile it into CSS using a vim hook, the scss
+    ' command, or running the Rake task 'assets:scss'
+  p
+    b public/views/index.slim, layout.slim:
+    ' These are the view files.
+    ' Edit their (this page's) content.
+
 
 coffee:
-  this.zazzle = ->
+  @zazzle = ->
     alert('i zazzle you')
