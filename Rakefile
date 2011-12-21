@@ -1,8 +1,9 @@
 task :default => :halbert
 
 desc 'Start the Sinatra server for Halbert'
-task :halbert => [:compile] do
-  sh %{thin -C prod.yml -R config.ru start}
+task :halbert => [:compile, 'pr:bundle'] do
+  puts "Starting Halbert server on localhost:4567"
+  `thin -C prod.yml -R config.ru start`
 end
 
 desc 'Start the Sinatra server for Halbert on Heroku'
