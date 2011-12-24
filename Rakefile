@@ -6,9 +6,12 @@ task :halbert => [:compile] do
 end
 
 desc 'Start the Sinatra server for Halbert on Heroku'
-task :heroku => [':pr:heroku_push'] do
+task :halroku => [':pr:heroku_push'] do
   puts 'Lets run Halbert on Heroku!'
 end
+
+desc 'Boring alias for the halroku task'
+task :heroku => [:halroku] {}
 
 namespace :pr  do
   task :bundle do
@@ -103,8 +106,13 @@ def has_heroku?
 end
 
 def heroku_name
-  heroku_paths = File.open(File.join(
-    File.dirname(__FILE__), *%w[.git config])).readlines.grep(/heroku.com.*\.git/)
-  raise "Expected only one heroku application" if heroku_paths.length > 1
-  name = heroku_paths.pop.gsub(/.*:(.*)\.git$/,"\\1")
+  git_file = File.join(File.dirname(__FILE__), *%w[.git config])
+  heroku_paths = File.open(git_file).readlines.grep(/heroku.com.*\.git/)
+  if heroku_paths.empty?
+    raise "It doesn't look like Heroku is set up for this Halbert instancance"
+  elsif heroku_paths.length > 1
+    raise "Expected only one heroku application"
+  else
+    name = heroku_paths.pop.gsub(/.*:(.*)\.git$/,"\\1")
+  end
 end
