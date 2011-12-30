@@ -7,6 +7,7 @@
   1.  rake **halbert**:  gets a basic Halbert running locally on Sinatra
   1.  Get a basic web site that you can start working with
   1.  Hack the given sensible files, maybe use the Vim includes to help
+      editing be more speedy
 
 ## Purpose
 
@@ -42,8 +43,8 @@ to `coffee` and `scss` files.
 ## Naming
 
 Named after Tom Halbert, my first CS professor in high school who
-admonished students to create "shell" for easy cut and pasting so that
-we could get to the the business of coding more quickly.
+admonished students to create "shell" code snippets for easy cut and
+pasting so that we could get to the the business of coding more quickly.
 
 
 ## Author
