@@ -11,7 +11,7 @@ Bear = (function() {
     return true;
   };
   Bear.prototype.coffee = function() {
-    return console.log('slurp');
+    return console.log('dainty sip');
   };
   return Bear;
 })();
