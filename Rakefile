@@ -6,7 +6,7 @@ task :halbert => [:compile] do
 end
 
 desc 'Start the Sinatra server for Halbert on Heroku'
-task :halroku => [':pr:heroku_push'] do
+task :halroku => ['pr:heroku_push'] do
   puts 'Lets run Halbert on Heroku!'
 end
 
