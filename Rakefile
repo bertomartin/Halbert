@@ -31,6 +31,10 @@ namespace :pr  do
   end
 
   task :heroku_push => [:heroku_validate] do
+    # Compile creates the custom.css and custom.js files.
+    # They are now added to the repo for the initial push
+    `git add public`
+    `git commit -m'Halbert: Adds custom.css|js'`
     puts `git push heroku master`
   end
 
