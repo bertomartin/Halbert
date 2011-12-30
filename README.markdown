@@ -44,7 +44,7 @@ I admit, it's nothing particularly groundbreaking and leans on the
 brilliance of other developers, but it lets you just get to hacking with
 nice, pretty tools.
 
-## Typical 
+## Typical Workflow
 
 ### Try some SCSS
 
@@ -63,6 +63,14 @@ nice, pretty tools.
 1.  Load up Webkit's console
 1.  `t = new Tree('the_larch');`
 1.  `b = new Bear('Edward', 'Bear'); b.greet();`
+
+### Send all that to Heroku
+
+`rake halroku`
+
+### Kill Heroku App
+
+`rake heroku:seppuku`
 
 ## Naming
 
