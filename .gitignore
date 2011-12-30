@@ -3,9 +3,3 @@
 .sass-cache
 **/*.css
 **/*.js
-/public/stylesheets/custom/*.css
-/public/javascripts/custom/*.js
-
-# Exceptions
-!/public/stylesheets/custom/custom.css
-!/public/javascripts/custom/custom.js
