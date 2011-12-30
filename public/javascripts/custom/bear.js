@@ -10,5 +10,8 @@ Bear = (function() {
   Bear.prototype.isStuffed = function() {
     return true;
   };
+  Bear.prototype.coffee = function() {
+    return console.log('slurp');
+  };
   return Bear;
 })();
