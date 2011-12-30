@@ -3,19 +3,29 @@
 ## TL;DR
 
   1.  `git clone` the repo
-  1.  `bundle install`
-  1.  `rake **halroku**`:  gets a basic Halbert running on heroku
-  1.  `rake **halbert**`:  gets a basic Halbert running at `localhost:4567`
-  1.  Get a basic web site that you can start working with
+  1.  `cd Halbert`
+    1.  This will create a pristine rvm gemset called "Halbert"
+    1.  This will be your root for Halbert operations
+  1.  Start Halbert in one of two formats
+    1.  `rake halroku`:  gets a basic Halbert running on heroku
+    1.  `rake halbert`:  gets a basic Halbert running at `localhost:4567`
   1.  Hack the given sensible files, maybe use the Vim shortcuts to help
       editing be more streamlined (`vim_options.vim`)
+    1.  Re-compile and re-deploy to Heroku with `rake halroku`
+    1.  Explore locally with your Sinatra-based Halbert instance running
+        on localhost
 
 ## Purpose
 
-Programming should be easy to explore with minimal muss and fuss.  To this end,
-I have crated Halbert: a small little "shell" that allows you to get going with
-little effort.  It includes the stack that I'm currently using at work running
-on a small, light server, Sinatra.
+Programming should be easy to explore with minimal muss and fuss.  How many
+times have we seen an excited would-be Rails programmer get bogged down
+in the minutiae of /usr/bin/rails versus and rvm-based rails versus some
+installer pack rails?  It's too busy to get from "I'm curious and I
+suck" to "I feel great, this tool must be great!"
+
+To this end, I have crated Halbert: a small little "shell" that allows
+you to get going with little effort.  It includes the stack that I'm
+currently using at work running on a small, light server.
 
 The stack:
 
@@ -23,12 +33,6 @@ The stack:
   1.  SCSS
   1.  JQuery
   1.  Twitter Bootstrap
-
-I plan on creating various branches off of this, but the nice thing is
-that all that's required is a `rake` command (merely a wrapper around
-Rack) and then you're good to try something out in the JS console, write
-some custom SCSS, edit a bit of HTML in a nice, lean templating
-language, or just hack around.
 
 A re-launch of Halbert always re-compiles the assets before a Heroku
 push or a local server startup.  You can, of course, use Guard or some
@@ -40,10 +44,25 @@ I admit, it's nothing particularly groundbreaking and leans on the
 brilliance of other developers, but it lets you just get to hacking with
 nice, pretty tools.
 
-## .gitignore
+## Typical 
 
-We ignore `.js` and `.css` files because they're ontologically secondary
-to `coffee` and `scss` files.
+### Try some SCSS
+
+1.  `rake` :  starts the server locally
+1.  Edit `public/stylesheets/custom/custom.scss`
+1.  `rake compile`
+1.  Point browser to `localhost:4567` to see results
+
+### Try some Coffee
+
+1.  `rake` :  starts the server locally
+1.  Edit `public/stylesheets/custom/custom.coffee`
+1.  Create a class called 'Tree', save it to `tree.coffee`
+1.  `rake compile`
+1.  Point browser to `localhost:4567`
+1.  Load up Webkit's console
+1.  `t = new Tree('the_larch');`
+1.  `b = new Bear('Edward', 'Bear'); b.greet();`
 
 ## Naming
 
