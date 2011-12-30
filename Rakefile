@@ -17,6 +17,7 @@ task :heroku => [:halroku] {}
 namespace :pr  do
   task :bundle do
     puts "Executing bundler for easy deployment pleasure"
+    puts `gem install --no-rdoc --no-ri bundler`
     puts `bundle install`
   end
 
