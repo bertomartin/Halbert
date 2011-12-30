@@ -42,7 +42,7 @@ to `coffee` and `scss` files.
 
 ## Naming
 
-Named after Tom Halbert, my first CS professor in high school who
+Named after Tom Halbert, my first CS teacher in high school who
 admonished students to create "shell" code snippets for easy cut and
 pasting so that we could get to the the business of coding more quickly.
 
