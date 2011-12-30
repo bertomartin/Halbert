@@ -44,6 +44,8 @@ I admit, it's nothing particularly groundbreaking and leans on the
 brilliance of other developers, but it lets you just get to hacking with
 nice, pretty tools.
 
+Oh, and we have facilities for TDD with Evergreen + Jasmine.
+
 ## Typical Workflow
 
 ### Try some SCSS
@@ -71,6 +73,13 @@ nice, pretty tools.
 ### Kill Heroku App
 
 `rake heroku:seppuku`
+
+## Testing
+
+`evergreen run` will run your tests if you've got Firefox installed.
+Specs are written in Coffeescript and stored in `spec/javascripts` in
+the form *name*\_spec.coffee.  You can use `bear_spec.coffee` as a
+model.
 
 ## Naming
 
