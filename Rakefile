@@ -57,6 +57,7 @@ namespace :heroku do
   task :name do
     puts heroku_name
   end
+  desc "Destroy the heroku instance"
   task :seppuku do
     hn = heroku_name.chomp!
     system %Q`heroku apps:destroy #{hn} --confirm #{hn}`
