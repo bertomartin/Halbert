@@ -20,17 +20,35 @@
     ' put your *.coffee files here.  You
     ' will need to compile them yourself (either through a vim hook as
     ' provided in vim_options.vim, or by manually compiling them with the
-    ' coffee command, or through the Rake task 'assets:cs'
+    ' coffee command, or through the Rake task 'assets:cs', or through the
+    ' Rake 'compile' task (rake -T for more information)
   p
     b public/stylesheets/custom:
     ' put your custom SCSS in 'custom.css'.
     ' You, again, will need to compile it into CSS using a vim hook, the scss
-    ' command, or running the Rake task 'assets:scss'
+    ' command, or by running the Rake task 'assets:scss' or 'compile'
   p
     b public/views/index.slim, layout.slim:
     ' These are the view files.
     ' Edit their (this page's) content.
 
+  h2 What do I have as a basis?
+
+  p
+    ' In the console you can run a command called 'zazzle' or create an instance
+    ' of the Bear class.  I've also provided a few form elements that you can
+    ' manipulate in the section below (try our JQuery ideas, typically).
+
+section.tweakables
+  div#playable_div.tweakable_div
+    p.content
+      ' This paragraph is in a div with id 'playable_div' and class 'tweakable_div'.
+      ' The paragraph itself is of a class called 'content'
+  section.form
+    form action='#'
+      label name="test_field_label"
+        ' This is called "test_field"
+      input type="text" id="test_field" class="input_box" value="Halbert text"
 
 coffee:
   @zazzle = ->
