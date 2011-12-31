@@ -1,3 +1,3 @@
-->
-  console.log("Welcome to halbert")
+$ ->
+  console.log "Welcome to Halbert"
 

@@ -1,3 +1,4 @@
-(function() {
-  return console.log("Welcome to halbert");
+
+$(function() {
+  return console.log("Welcome to Halbert");
 });
