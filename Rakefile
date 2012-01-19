@@ -86,7 +86,7 @@ namespace :assets do
     puts "Converting SCSS to CSS"
     Dir.chdir 'public/stylesheets/custom'
     Dir.glob('*.scss').each do |infile|
-      outfile = File.basename(infile, '.scss') + '.css'
+      outfile = File.basename(infile, '.scss')
       puts "\t...#{infile} #{outfile}"
       `scss #{infile} #{outfile}`
     end
