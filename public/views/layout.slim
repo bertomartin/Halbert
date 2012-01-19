@@ -8,9 +8,6 @@ head
     link href='/stylesheets/setup/bootstrap.css' media='screen' rel='stylesheet' type='text/css'
     link href='/less/bootstrap.less' media='all' rel='stylesheet/less' type='other'
 
-    /* Here are the user custom resource files*/
-    link href='/stylesheets/custom/custom.css' media='screen' rel='stylesheet' type='text/css'
-
     /* Include some baseline aweseome JS libraries*/
     script src='/javascripts/setup/underscore.js'
     script src='/javascripts/setup/jquery.js'
@@ -21,6 +18,12 @@ head
     - my_js_files = Dir.glob(File.join(custom_js_path, *['*.js']))
     - my_js_files.each do |f|
       script src="/javascripts/custom/#{File.basename f}"
+
+    /* Here is where your own CSS files are loaded */
+    - custom_css_path = File.join(File.dirname(__FILE__), *%w[.. stylesheets custom])
+    - my_css_files = Dir.glob(File.join(custom_css_path, *['*.css']))
+    - my_css_files.each do |f|
+      link href="/stylesheets/custom/#{File.basename f}"
 
 body
   == yield
