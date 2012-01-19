@@ -1,18 +1,55 @@
 .content
-  label for="date"
-    ' Enter a date
-  input#date
-  input#anotherdate
+  h1 Welcome to Halbert
+
+  h2 What is Halbert?
+
+  p
+    ' Halbert is an environment for bootstrapping an idea or for getting
+    ' the hang of a concept.  With JQuery, Coffeescript, Slim Templates,
+    ' Twitter's bootstrap styling, and SCSS you've got the basics of
+    ' everything you need to get going quickly.
+
+  h2 How can I customize it?
+
+  p
+    ' The typical user will clone the github repository.  Thereafter go to
+    ' town!  Here's a breakdown of the files you'll want to play with:
+
+  p
+    b public/javascripts/custom:
+    ' put your *.coffee files here.  You
+    ' will need to compile them yourself (either through a vim hook as
+    ' provided in vim_options.vim, or by manually compiling them with the
+    ' coffee command, or through the Rake task 'assets:cs', or through the
+    ' Rake 'compile' task (rake -T for more information)
+  p
+    b public/stylesheets/custom:
+    ' put your custom SCSS in 'custom.css'.
+    ' You, again, will need to compile it into CSS using a vim hook, the scss
+    ' command, or by running the Rake task 'assets:scss' or 'compile'
+  p
+    b public/views/index.slim, layout.slim:
+    ' These are the view files.
+    ' Edit their (this page's) content.
+
+  h2 What do I have as a basis?
+
+  p
+    ' In the console you can run a command called 'zazzle' or create an instance
+    ' of the Bear class.  I've also provided a few form elements that you can
+    ' manipulate in the section below (try our JQuery ideas, typically).
+
+section.tweakables
+  div#playable_div.tweakable_div
+    p.content
+      ' This paragraph is in a div with id 'playable_div' and class 'tweakable_div'.
+      ' The paragraph itself is of a class called 'content'
+  section.form
+    form action='#'
+      label name="test_field_label"
+        ' This is called "test_field"
+      input type="text" id="test_field" class="input_box" value="Halbert text"
 
 coffee:
-  pickerOpts =
-    appendText: "mm/dd/yy"
-    defaultDate: "+5"
-    showOtherMonths: true
-    maxDate: "+8"
-    altField: '#anotherdate'
-    showButtonPanel: true
-    showAnim: ''
-
-  pi = $("#date").datepicker(pickerOpts)
-  pi.datepicker("show")
+  @zazzle = ->
+    alert('i zazzle you')
