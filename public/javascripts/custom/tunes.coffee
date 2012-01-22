@@ -1,5 +1,8 @@
 $ ->
-  window.Album = Backbone.Model.extend()
+  window.Album = Backbone.Model.extend
+    isFirstTrack: (index) ->
+      return true
+
   window.AlbumView = Backbone.View.extend
     tagName:  'li'
     className: 'album'

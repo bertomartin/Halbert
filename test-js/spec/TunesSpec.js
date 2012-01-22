@@ -30,7 +30,12 @@ describe('Album', function() {
   beforeEach(function() {
     return this.album = new Album(albumData[0]);
   });
-  return it('creates from data', function() {
+  it('creates from data', function() {
     return expect(this.album.get('tracks').length).toEqual(2);
+  });
+  return describe("first track", function() {
+    return it("identifies correct first track", function() {
+      return expect(this.album.isFirstTrack(0)).toBeTruthy();
+    });
   });
 });

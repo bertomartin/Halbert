@@ -1,5 +1,9 @@
 $(function() {
-  window.Album = Backbone.Model.extend();
+  window.Album = Backbone.Model.extend({
+    isFirstTrack: function(index) {
+      return true;
+    }
+  });
   return window.AlbumView = Backbone.View.extend({
     tagName: 'li',
     className: 'album',

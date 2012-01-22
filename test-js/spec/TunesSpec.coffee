@@ -32,5 +32,10 @@ albumData = [
 describe 'Album', ->
   beforeEach ->
     @album = new Album(albumData[0])
+
   it 'creates from data', ->
     expect(@album.get('tracks').length).toEqual(2)
+
+  describe "first track", ->
+    it "identifies correct first track", ->
+      expect(@album.isFirstTrack(0)).toBeTruthy()
