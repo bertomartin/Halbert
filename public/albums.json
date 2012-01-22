@@ -1,0 +1,30 @@
+[
+  {
+    title: "She and Him Christmas"
+    artist: "She and Him"
+    tracks: [
+      {
+        title: "Silver Bells"
+        url: '/music/She and Him Christmas Silver Bells.mp3'
+      },
+      {
+        title: "Christmas Waltz"
+        url: '/music/She and Him Christmas Christmas Waltz.mp3'
+      }
+    ]
+  },
+  {
+    title: "Puppini Sisters Christmas"
+    artist: "Puppini Sisters"
+    tracks: [
+      {
+        title: "Santa Baby"
+        url: '/music/Puppini Sisters Christmas Santa Baby'
+      },
+      {
+        title: "Last Christmas"
+        url: '/music/Puppini Sisters Christmas Last Christmas.mp3'
+      }
+    ]
+  }
+]

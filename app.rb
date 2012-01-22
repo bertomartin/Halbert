@@ -6,3 +6,8 @@ set :views, settings.public_folder + '/views'
 get '/' do
   slim :index, {:f => settings}
 end
+
+get '/albums' do
+  content_type "application/json"
+  File.readlines("public/albums.json")
+end
