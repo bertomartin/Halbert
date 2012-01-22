@@ -39,3 +39,7 @@ describe 'Album', ->
   describe "first track", ->
     it "identifies correct first track", ->
       expect(@album.isFirstTrack(0)).toBeTruthy()
+
+  describe "last track", ->
+    it "identifies correct last track", ->
+      expect(@album.isLastTrack(1)).toBeTruthy()

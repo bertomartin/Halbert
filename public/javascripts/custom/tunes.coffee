@@ -1,7 +1,10 @@
 $ ->
   window.Album = Backbone.Model.extend
     isFirstTrack: (index) ->
-      return true
+      index is 0
+    isLastTrack: (index) ->
+      index+1 is (@.get('tracks').length)
+
 
   window.AlbumView = Backbone.View.extend
     tagName:  'li'

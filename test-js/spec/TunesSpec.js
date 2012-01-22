@@ -33,9 +33,14 @@ describe('Album', function() {
   it('creates from data', function() {
     return expect(this.album.get('tracks').length).toEqual(2);
   });
-  return describe("first track", function() {
+  describe("first track", function() {
     return it("identifies correct first track", function() {
       return expect(this.album.isFirstTrack(0)).toBeTruthy();
+    });
+  });
+  return describe("last track", function() {
+    return it("identifies correct last track", function() {
+      return expect(this.album.isLastTrack(1)).toBeTruthy();
     });
   });
 });

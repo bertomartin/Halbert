@@ -1,7 +1,10 @@
 $(function() {
   window.Album = Backbone.Model.extend({
     isFirstTrack: function(index) {
-      return true;
+      return index === 0;
+    },
+    isLastTrack: function(index) {
+      return index + 1 === (this.get('tracks').length);
     }
   });
   return window.AlbumView = Backbone.View.extend({
