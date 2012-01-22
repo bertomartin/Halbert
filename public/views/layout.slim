@@ -15,10 +15,10 @@ head
       link href="/stylesheets/custom/#{File.basename f}" media='screen' rel='stylesheet' type='text/css'
 
     /* Include some baseline aweseome JS libraries*/
-    script src='/javascripts/vendor/underscore.js'
-    script src='/javascripts/vendor/backbone.js'
     script src='/javascripts/vendor/jquery.js'
     script src='/javascripts/vendor/jquery-ui.js'
+    script src='/javascripts/vendor/underscore.js'
+    script src='/javascripts/vendor/backbone.js'
 
     /* Here is where your own JS files are loaded */
     - custom_js_path = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
