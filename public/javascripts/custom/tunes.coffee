@@ -19,3 +19,7 @@ $ ->
       renderedContent = @template(@model.toJSON())
       $(@el).html(renderedContent)
       @
+
+  window.Albums = Backbone.Collection.extend
+    model: Album
+    url: '/albums'

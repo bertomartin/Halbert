@@ -7,7 +7,7 @@ $(function() {
       return index + 1 === (this.get('tracks').length);
     }
   });
-  return window.AlbumView = Backbone.View.extend({
+  window.AlbumView = Backbone.View.extend({
     tagName: 'li',
     className: 'album',
     initialize: function() {
@@ -21,5 +21,9 @@ $(function() {
       $(this.el).html(renderedContent);
       return this;
     }
+  });
+  return window.Albums = Backbone.Collection.extend({
+    model: Album,
+    url: '/albums'
   });
 });

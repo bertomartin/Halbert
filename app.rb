@@ -11,3 +11,7 @@ get '/albums' do
   content_type "application/json"
   File.readlines("public/albums.json")
 end
+
+get '/favicon.ico' do
+  ''
+end
