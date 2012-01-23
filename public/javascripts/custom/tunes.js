@@ -1,4 +1,27 @@
 $(function() {
+  window.BackboneTunes = Backbone.Router.extend({
+    routes: {
+      '': 'home',
+      'blank': 'blank'
+    },
+    initialize: function() {
+      return this.libraryView = new LibraryView({
+        collection: window.library
+      });
+    },
+    home: function() {
+      var $container;
+      $container = $('#container');
+      $container.empty();
+      return $container.append(this.libraryView.render().el);
+    },
+    blank: function() {
+      var $container;
+      $container = $('#container');
+      $container.empty();
+      return $container.text("This is blanked out for your protection");
+    }
+  });
   window.Album = Backbone.Model.extend({
     isFirstTrack: function(index) {
       return index === 0;
@@ -26,8 +49,9 @@ $(function() {
     model: Album,
     url: '/albums'
   });
+  window.library = new Albums();
   window.LibraryAlbumView = AlbumView.extend();
-  return window.LibraryView = Backbone.View.extend({
+  window.LibraryView = Backbone.View.extend({
     tagName: 'section',
     className: 'library',
     initialize: function() {
@@ -51,4 +75,11 @@ $(function() {
       return this;
     }
   });
+  window.App = new BackboneTunes();
+  try {
+    Backbone.history.start();
+  } catch (exception) {
+
+  }
+  return window.library.fetch();
 });

@@ -1,4 +1,22 @@
 $ ->
+  # these are roughly like controllers
+  window.BackboneTunes = Backbone.Router.extend
+   routes:
+     '': 'home'
+     'blank' : 'blank'
+   initialize: -> #should instantiate the root-level view
+     @libraryView = new LibraryView
+       collection:  window.library
+   home: ->
+     $container = $('#container');
+     $container.empty()
+     $container.append(@libraryView.render().el);
+   blank: ->
+     $container = $('#container');
+     $container.empty()
+     $container.text("This is blanked out for your protection")
+
+
   window.Album = Backbone.Model.extend
     isFirstTrack: (index) ->
       index is 0
@@ -20,9 +38,13 @@ $ ->
       $(@el).html(renderedContent)
       @
 
+
+
   window.Albums = Backbone.Collection.extend
     model: Album
     url: '/albums'
+
+  window.library = new Albums()
 
   window.LibraryAlbumView = AlbumView.extend()
 
@@ -44,3 +66,12 @@ $ ->
           collection: collection
         $albums.append(view.render().el)
       @
+
+
+   window.App = new BackboneTunes();
+
+   try
+     Backbone.history.start();
+   catch exception
+
+   window.library.fetch()
