@@ -23,3 +23,24 @@ $ ->
   window.Albums = Backbone.Collection.extend
     model: Album
     url: '/albums'
+
+  window.LibraryAlbumView = AlbumView.extend()
+
+  window.LibraryView = Backbone.View.extend
+    tagName: 'section'
+    className: 'library'
+    initialize:  ->
+      _.bindAll(@, 'render')
+      @template = _.template($('#library-template').html())
+      @collection.bind('reset', this.render)
+    render: ->
+      $(@el).html(@template({}))
+      $albums = @$('.albums')
+      collection = @collection
+
+      collection.each (album) ->
+        view = new LibraryAlbumView
+          model: album,
+          collection: collection
+        $albums.append(view.render().el)
+      @
