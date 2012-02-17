@@ -74,7 +74,16 @@ namespace :assets do
   desc 'Compile the Coffeescript assets'
   task :cs do
     puts "Converting Coffeescript to Javascript"
-    Dir.chdir 'public/javascripts/custom'
+    begin
+      Dir.chdir 'public/javascripts/custom'
+    rescue Exception => ex
+    STDERR.puts <<EOW
+
+      Halbert could not find 'public/javascripts/custom', that's where your custom
+      CoffeeScript files go.  Would you mind putting it back?
+
+EOW
+    end
     Dir.glob('*.coffee').each do |infile|
       puts "\t...#{infile}"
       `coffee -c --bare #{infile}`
