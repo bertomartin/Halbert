@@ -9,19 +9,24 @@
   1.  Start Halbert in one of two formats
     1.  `rake halroku`:  gets a basic Halbert running on heroku
     1.  `rake halbert`:  gets a basic Halbert running at `localhost:4567`
-  1.  Hack the given sensible files, maybe use the Vim shortcuts to help
-      editing be more streamlined (`vim_options.vim`)
-    1.  Re-compile and re-deploy to Heroku with `rake halroku`
+  1.  From here in the browser developer interface you have JQuery and
+      you'll see the effects of some of the compiled CoffeeScript code.
+      You're ready to explore and hack Javascript, Coffeescript, or CSS
+  1.  Customize:  Editing files in `public/{javascripts, stylesheets, views}`
+      does what you expect: write Coffeescript, SASS, or Slim templates in
+      these directories.  Vim users might want to take shortcuts from `vim_options.vim`.
+    1.  Re-compile and re-deploy to Heroku with `rake halroku` (for remote) or
+        `rake` for a local, Sinatra-based server
     1.  Explore locally with your Sinatra-based Halbert instance running
         on localhost
 
 ## Purpose
 
-Programming should be easy to explore with minimal muss and fuss.  How many
-times have we seen an excited would-be Rails programmer get bogged down
-in the minutiae of /usr/bin/rails versus and rvm-based rails versus some
-installer pack rails?  It's too busy to get from "I'm curious and I
-suck" to "I feel great, this tool must be great!"
+Programming should be easy to explore with minimal muss and fuss.  
+
+When someone gets the urge to learn to program or to sketch out an idea, the critical 
+stumbling block to their creativity or interest is the arcane process of 
+configuring a stack.
 
 To this end, I have crated Halbert: a small little "shell" that allows
 you to get going with little effort.  It includes the stack that I'm
@@ -34,17 +39,21 @@ The stack:
   1.  JQuery
   1.  Twitter Bootstrap
 
+This is ideal for newcomers who can be deterred by environmental and
+server configuration overhead.  It's also great for experienced developers
+who want something that works quickly _and_ that's easily deployed and
+shared via Heroku.
+
 A re-launch of Halbert always re-compiles the assets before a Heroku
 push or a local server startup.  You can, of course, use Guard or some
 other asset manager to compile these files, but in keeping with
 Halbert's lightweight, magic-minimal approach, I prefer to use Vim
 autocommands.
 
-I admit, it's nothing particularly groundbreaking and leans on the
-brilliance of other developers, but it lets you just get to hacking with
-nice, pretty tools.
+Oh, and we have facilities for TDD with Evergreen + Jasmine.  Intermediate
+users of Halbert may find benefit here.
 
-Oh, and we have facilities for TDD with Evergreen + Jasmine.
+Halbert lets you "just get hacking."
 
 ## Typical Workflow
 
@@ -58,8 +67,9 @@ Oh, and we have facilities for TDD with Evergreen + Jasmine.
 ### Try some Coffee
 
 1.  `rake` :  starts the server locally
-1.  Edit `public/stylesheets/custom/custom.coffee`
-1.  Create a class called 'Tree', save it to `tree.coffee`
+1.  Open another tab and go into the Halbert directory
+1.  Edit `public/javascripts/custom/custom.coffee`, edit the given `alert` message
+1.  Edit the coffeescript class: `tree.coffee`
 1.  `rake compile`
 1.  Point browser to `localhost:4567`
 1.  Load up Webkit's console
