@@ -1,3 +1,7 @@
+module CONFIG
+  JSLIBRARY = 'JQuery'
+end
+
 set :root => File.dirname(__FILE__)
 set :slim, :format => :html5
 set :public_folder, File.dirname(__FILE__) + '/public'

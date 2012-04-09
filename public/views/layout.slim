@@ -16,8 +16,13 @@ head
 
     /* Include some baseline aweseome JS libraries*/
     script src='/javascripts/vendor/underscore.js'
-    script src='/javascripts/vendor/jquery.js'
-    script src='/javascripts/vendor/jquery-ui.js'
+
+    - if CONFIG::JSLIBRARY == 'JQuery'
+      script src='/javascripts/vendor/jquery.js'
+      script src='/javascripts/vendor/jquery-ui.js'
+    - elsif CONFIG::JSLIBRARY == 'Prototype'
+      script src='/javascripts/vendor/prototype.js'
+      script src='/javascripts/vendor/scriptaculous-js-1.9.0/src/scriptaculous.js'
 
     /* Here is where your own JS files are loaded */
     - custom_js_path = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])

@@ -76,6 +76,12 @@ Halbert lets you "just get hacking."
 1.  `t = new Tree('the_larch');`
 1.  `b = new Bear('Edward', 'Bear'); b.greet();`
 
+### Préfèrez-vous Prototype.js et Scripty?
+
+If you want to use these instead of JQuery, toggle between the two
+libraries by adjusting `app.rb` and changing the `CONFIG::JSLIBRARY` value
+to 'JQuery' or 'Prototype'.
+
 ### Send all that to Heroku
 
 `rake halroku`
