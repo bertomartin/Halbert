@@ -53,3 +53,8 @@ section.tweakables
 coffee:
   @zazzle = ->
     alert('i zazzle you')
+
+  if !jQuery?
+    console.log "Looks like you rock Prototype"
+  else
+    console.log "JQuery in da House!"
