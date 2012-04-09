@@ -1,5 +1,5 @@
 module CONFIG
-  JSLIBRARY = 'JQuery'
+  JSLIBRARY = 'Prototype'
 end
 
 set :root => File.dirname(__FILE__)
