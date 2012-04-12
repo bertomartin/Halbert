@@ -52,9 +52,12 @@ section.tweakables
 
 coffee:
   @zazzle = ->
-    alert('i zazzle you')
+    alert('I zazzle you')
 
-  if !jQuery?
-    console.log "Looks like you rock Prototype"
+  if window.jQuery?
+    console.log "You are using Jquery"
   else
-    console.log "JQuery in da House!"
+    console.log "You are using Protoype "
+
+  if window.Em?
+    console.log "Looks like you're using Ember.js. Way to embrace the future!"
