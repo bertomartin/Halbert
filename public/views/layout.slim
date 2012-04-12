@@ -17,9 +17,12 @@ head
     /* Include some baseline aweseome JS libraries*/
     script src='/javascripts/vendor/underscore.js'
 
+
     - if CONFIG::JSLIBRARY == 'JQuery'
       script src='/javascripts/vendor/jquery.js'
       script src='/javascripts/vendor/jquery-ui.js'
+      /* No Ember unless you jQuery too */
+      script src='/javascripts/vendor/ember-0.9.6.js'
     - elsif CONFIG::JSLIBRARY == 'Prototype'
       script src='/javascripts/vendor/prototype.js'
       script src='/javascripts/vendor/scriptaculous-js-1.9.0/src/scriptaculous.js'
