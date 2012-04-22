@@ -85,7 +85,8 @@ namespace :assets do
 EOW
     end
     Dir.glob('*.coffee').each do |infile|
-      puts "\t...#{infile}"
+      outfile = File.basename(infile, '.coffee')
+      puts "\t...#{infile} #{outfile}.js"
       `coffee -c --bare #{infile}`
     end
   end
