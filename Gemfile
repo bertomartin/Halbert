@@ -9,5 +9,8 @@ gem 'tilt'
 gem 'heroku'
 
 group :development do
+  gem 'therubyracer'
+  gem 'guard-coffeescript'
+  gem 'guard-sass'
   gem 'evergreen'
 end
