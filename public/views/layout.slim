@@ -19,7 +19,10 @@ head
       script src='/javascripts/vendor/jquery.js'
       script src='/javascripts/vendor/jquery-ui.js'
       /* No Ember unless you jQuery too */
-      script src='/javascripts/vendor/ember-0.9.6.js'
+      |<script type="text/javascript">
+      | window.ENV = { CP_DEFAULT_CACHEABLE: true, VIEW_PRESERVES_CONTEXT: true};
+      |</script>
+      script src='/javascripts/vendor/ember-0.9.8.1.js'
 
     /* Here is where your own JS files are loaded */
     - custom_js_path = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
