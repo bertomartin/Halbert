@@ -1,5 +1,4 @@
-h1 Let's Build an Ember Application
-
-|<script type="text/x-handlebars">
-|  {{view templateName="advice" adjective="good"}}
-|</script>
+div id="example-app"
+- js_root_dir = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
+- app_template_path = js_root_dir + "/templates/application.handlebars"
+- File.read app_template_path
