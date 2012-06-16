@@ -29,7 +29,7 @@ head
 
     script src="/javascripts/custom/#{File.basename(File.join(js_root_dir, 'application.js'))}"
 
-    - %w(helpers mixins models controllers).each do |dir|
+    - %w(helpers mixins models views controllers).each do |dir|
       - Dir.glob(File.join(js_root_dir, *[dir, '*'])).each do |file|
         script src="/javascripts/custom/#{dir}/#{File.basename file}"
 

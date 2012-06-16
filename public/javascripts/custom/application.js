@@ -1,1 +1,6 @@
-window.App = Ember.Application.create();
+window.App = Ember.Application.create({
+ ready: function(){
+   console.log("Created App namespace");
+ }
+});
+
