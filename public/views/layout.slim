@@ -25,10 +25,16 @@ head
       script src='/javascripts/vendor/ember-0.9.8.1.js'
 
     /* Here is where your own JS files are loaded */
-    - custom_js_path = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
-    - my_js_files = Dir.glob(File.join(custom_js_path, *['*.js']))
-    - my_js_files.each do |f|
-      script src="/javascripts/custom/#{File.basename f}"
+    - js_root_dir = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
+
+    script src="/javascripts/custom/#{File.basename(File.join(js_root_dir, 'application.js'))}"
+
+    - %w(helpers mixins models controllers).each do |dir|
+      - Dir.glob(File.join(js_root_dir, *[dir, '*'])).each do |file|
+        script src="/javascripts/custom/#{dir}/#{File.basename file}"
+
+    - Dir.glob("#{js_root_dir}/templates/*.handlebars") do |f|
+      == File.read(f)
 
     /* Here is where your own CSS files are loaded */
     - custom_css_path = File.join(File.dirname(__FILE__), *%w[.. stylesheets custom])
