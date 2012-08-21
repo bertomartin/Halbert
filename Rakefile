@@ -96,8 +96,8 @@ EOW
     Dir.chdir 'public/stylesheets/custom'
     Dir.glob('*.scss').each do |infile|
       outfile = File.basename(infile, '.scss')
-      puts "\t...#{infile} #{outfile}"
-      `scss #{infile} #{outfile}`
+      puts "\t...#{infile} #{outfile}.css"
+      `scss #{infile} #{outfile}.css`
     end
   end
 end
@@ -131,4 +131,5 @@ def heroku_name
   else
     name = heroku_paths.pop.gsub(/.*:(.*)\.git$/,"\\1")
   end
+  name
 end
