@@ -17,11 +17,13 @@ window.App = Ember.Application.create({
         route:  '/'
       }),
       shoes:  Ember.Route.extend({
+        route: '/shoes',
         enter: function ( router ){
           console.log("The shoes sub-state was entered.");
         },
       }),
       cars:  Ember.Route.extend({
+        route: '/cars',
         enter: function ( router ){
           console.log("The cars sub-state was entered.");
         },
