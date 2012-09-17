@@ -15,6 +15,16 @@ window.App = Ember.Application.create({
     root:  Ember.Route.extend({
       index:  Ember.Route.extend({
         route:  '/'
+      }),
+      shoes:  Ember.Route.extend({
+        enter: function ( router ){
+          console.log("The shoes sub-state was entered.");
+        },
+      }),
+      cars:  Ember.Route.extend({
+        enter: function ( router ){
+          console.log("The cars sub-state was entered.");
+        },
       })
     })
   })
