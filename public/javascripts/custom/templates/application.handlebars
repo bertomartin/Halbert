@@ -1,12 +1,22 @@
 <script type="text/x-handlebars" data-template-name="application">
-  <h1>Hi Ember</h1>
+  {{outlet greeting}}
   <p {{bindAttr class="isSlogan"}} >Ember is: {{slogan}}</p>
-  <hr/>
-
-  {{outlet}}
+  {{outlet body}}
+  {{outlet footer}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="cars">
+  <hr/>
   <h1>Cars</h1>
   <p>Here in my car / I feel safest of all</p>
+</script>
+
+<script type="text/x-handlebars" data-template-name="shoes">
+  <hr/>
+  <h1>Shoes</h1>
+  <p><a href="http://youtu.be/v_Yx0X-eHn8">N&uuml; Shooz?</p>
+</script>
+
+<script type="text/x-handlebars" data-template-name="salutation">
+  <h1>{{greeting}}</h1>
 </script>
