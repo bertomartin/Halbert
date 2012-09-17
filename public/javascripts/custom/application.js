@@ -7,6 +7,13 @@ window.App = Ember.Application.create({
     slogan: 'A framework for creating ambitious web applications',
     isSlogan: true
   }),
+
+  CarsView:  Em.View.extend({
+    templateName:  'cars'
+  }),
+  CarsController:  Em.ArrayController.extend(),
+
+
   ready: function(){
     console.log("Created App namespace");
   },
@@ -27,6 +34,9 @@ window.App = Ember.Application.create({
         enter: function ( router ){
           console.log("The cars sub-state was entered.");
         },
+        connectOutlets:  function(router, context){
+          router.get('applicationController').connectOutlet('cars');
+        }
       })
     })
   })

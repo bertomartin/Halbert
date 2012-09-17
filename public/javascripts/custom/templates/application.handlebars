@@ -1,4 +1,12 @@
 <script type="text/x-handlebars" data-template-name="application">
   <h1>Hi Ember</h1>
   <p {{bindAttr class="isSlogan"}} >Ember is: {{slogan}}</p>
+  <hr/>
+
+  {{outlet}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="cars">
+  <h1>Cars</h1>
+  <p>Here in my car / I feel safest of all</p>
 </script>
