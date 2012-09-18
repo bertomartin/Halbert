@@ -28,13 +28,21 @@ window.App = Ember.Application.create({
   }),
   TraversalController:  Em.ObjectController.extend(),
 
+
+  HomeView:  Em.View.extend({
+    template:  Em.Handlebars.compile('<p><a {{action goHome href=true}}><em>Go Home</em></a></p>')
+  }),
+  HomeController:  Em.ObjectController.extend(),
+
   ready: function(){
     console.log("Created App namespace");
   },
   Router: Ember.Router.extend({
     enableLogging:  true,
 
-    goToCars:  Ember.Route.transitionTo('root.cars'),
+    goToCars:  Ember.Route.transitionTo('cars'),
+    goToShoes:  Ember.Route.transitionTo('shoes'),
+    goHome:  Ember.Route.transitionTo('index'),
 
     root:  Ember.Route.extend({
       index:  Ember.Route.extend({
@@ -53,6 +61,8 @@ window.App = Ember.Application.create({
           router.get('applicationController').connectOutlet('greeting', 'salutation',
                                                             { greeting: "Shoes Route" });
           router.get('applicationController').connectOutlet('body', 'shoes');
+          router.get('applicationController').connectOutlet('footer', 'traversal');
+          router.get('traversalController').connectOutlet('home');
         }
       }),
       cars:  Ember.Route.extend({
@@ -64,6 +74,8 @@ window.App = Ember.Application.create({
           router.get('applicationController').connectOutlet('greeting', 'salutation',
                                                             { greeting: "Cars Route" });
           router.get('applicationController').connectOutlet('body', 'cars');
+          router.get('applicationController').connectOutlet('footer', 'traversal');
+          router.get('traversalController').connectOutlet('home');
         }
       })
     })
