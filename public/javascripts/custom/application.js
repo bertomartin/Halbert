@@ -23,18 +23,26 @@ window.App = Ember.Application.create({
   }),
   SalutationController:  Em.ObjectController.extend(),
 
+  TraversalView:  Em.View.extend({
+    templateName:  'traversal'
+  }),
+  TraversalController:  Em.ObjectController.extend(),
+
   ready: function(){
     console.log("Created App namespace");
   },
   Router: Ember.Router.extend({
     enableLogging:  true,
+
+    goToCars:  Ember.Route.transitionTo('root.cars'),
+
     root:  Ember.Route.extend({
       index:  Ember.Route.extend({
         route:  '/',
         connectOutlets:  function(router, context){
           router.get('applicationController').connectOutlet('greeting', 'salutation',
                                                             { greeting: "My Ember App" });
-        }
+          router.get('applicationController').connectOutlet('body', 'traversal'); }
       }),
       shoes:  Ember.Route.extend({
         route: '/shoes',
