@@ -85,29 +85,29 @@ window.App = Ember.Application.create({
 App.Shoe = Ember.Object.extend();
 App.Shoe.reopenClass({
   _listOfShoes:  Em.A(),
-
-  all:  function(){
-    var allShoes = this._listOfShoes;
-
-    // Mock an ajax call; like a jQuery.ajax might have done...
-    setTimeout( function(){
-      allShoes.clear();
-      allShoes.pushObjects(
-        [
+  _stubDataSource:  [
           { id: 'rainbow',   name: "Rainbow Sandals",
               price: '$60.00', description: 'San Clemente style' },
           { id: 'strappy',   name: "Strappy shoes",
               price: '$300.00', description: 'I heard Pénèlope Cruz say this word once.' },
           { id: 'bluesuede', name: "Blue Suede",
               price: '$125.00', description: 'The King would never lie:  TKOB⚡!' }
-        ]
-      );
-    }, 2000);
+        ],
+
+  all:  function(){
+    var allShoes = this._listOfShoes;
+
+    // Stub an ajax call; like a jQuery.ajax might have done...
+    var self = this;
+    setTimeout( function(){
+      allShoes.clear();
+      allShoes.pushObjects( self._stubDataSource );
+    }, 1000);
 
     return this._listOfShoes;
   },
   find:  function(id){
-    return this._listOfShoes.findProperty('id', id);
+    return this._stubDataSource.findProperty('id', id);
   }
 });
 
