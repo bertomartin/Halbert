@@ -53,6 +53,8 @@ window.App = Ember.Application.create({
       index:  Ember.Route.extend({
         route:  '/',
         connectOutlets:  function(router, context){
+          router.get('applicationController').disconnectOutlet('body');
+          router.get('applicationController').disconnectOutlet('footer');
           router.get('applicationController').connectOutlet('greeting', 'salutation',
                                                             { greeting: "My Ember App" });
           router.get('applicationController').connectOutlet('body', 'traversal'); }
