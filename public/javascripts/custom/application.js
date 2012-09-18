@@ -23,6 +23,11 @@ window.App = Ember.Application.create({
   }),
   SalutationController:  Em.ObjectController.extend(),
 
+  ShoeView:  Em.View.extend({
+    templateName:  'shoe'
+  }),
+  ShoeController:  Em.ObjectController.extend(),
+
   TraversalView:  Em.View.extend({
     templateName:  'traversal'
   }),
@@ -41,8 +46,8 @@ window.App = Ember.Application.create({
     enableLogging:  true,
 
     goToCars:  Ember.Route.transitionTo('cars'),
-    goToShoes:  Ember.Route.transitionTo('shoes'),
-    goHome:  Ember.Route.transitionTo('index'),
+    goToShoes:  Ember.Route.transitionTo('shoes.index'),
+    goHome:  Ember.Route.transitionTo('root.index'),
 
     root:  Ember.Route.extend({
       index:  Ember.Route.extend({
@@ -53,17 +58,42 @@ window.App = Ember.Application.create({
           router.get('applicationController').connectOutlet('body', 'traversal'); }
       }),
       shoes:  Ember.Route.extend({
+        showShoe:  Ember.Route.transitionTo('shoes.shoe'),
+
         route: '/shoes',
-        enter: function ( router ){
-          console.log("The shoes sub-state was entered.");
-        },
-        connectOutlets:  function(router, context){
-          router.get('applicationController').connectOutlet('greeting', 'salutation',
-                                                            { greeting: "Shoes Route" });
-          router.get('applicationController').connectOutlet('body', 'shoes', App.Shoe.all());
-          router.get('applicationController').connectOutlet('footer', 'traversal');
-          router.get('traversalController').connectOutlet('home');
-        }
+        index:  Ember.Route.extend({
+          route: '/',
+          enter: function ( router ){
+            console.log("The shoes sub-state was entered.");
+          },
+          connectOutlets:  function(router, context){
+            router.get('applicationController').connectOutlet('greeting', 'salutation',
+                                                              { greeting: "Shoes Route" });
+            router.get('applicationController').connectOutlet('body', 'shoes', App.Shoe.all());
+            router.get('applicationController').connectOutlet('footer', 'traversal');
+            router.get('traversalController').connectOutlet('home');
+          }
+        }),
+        shoe:  Ember.Route.extend({
+          route: '/shoe/:id',
+          enter: function ( router ){
+            console.log("The shoe detail sub-state was entered.");
+          },
+          deserialize:  function(router, context){
+            return App.Shoe.find( context.id );
+          },
+          serialize:  function(router, context){
+            return {
+              id: context.id
+            }
+          },
+          connectOutlets:  function(router, aShoe){
+            router.get('applicationController').connectOutlet('greeting', 'salutation',
+                                                              { greeting: "Shoes.Shoe Route" });
+            router.get('applicationController').connectOutlet('body', 'shoe', aShoe);
+            router.get('applicationController').connectOutlet('footer', 'traversal');
+          }
+        })
       }),
       cars:  Ember.Route.extend({
         route: '/cars',
