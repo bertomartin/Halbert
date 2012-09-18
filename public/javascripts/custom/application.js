@@ -60,7 +60,7 @@ window.App = Ember.Application.create({
         connectOutlets:  function(router, context){
           router.get('applicationController').connectOutlet('greeting', 'salutation',
                                                             { greeting: "Shoes Route" });
-          router.get('applicationController').connectOutlet('body', 'shoes');
+          router.get('applicationController').connectOutlet('body', 'shoes', App.Shoe.all());
           router.get('applicationController').connectOutlet('footer', 'traversal');
           router.get('traversalController').connectOutlet('home');
         }
@@ -80,6 +80,35 @@ window.App = Ember.Application.create({
       })
     })
   })
+});
+
+App.Shoe = Ember.Object.extend();
+App.Shoe.reopenClass({
+  _listOfShoes:  Em.A(),
+
+  all:  function(){
+    var allShoes = this._listOfShoes;
+
+    // Mock an ajax call; like a jQuery.ajax might have done...
+    setTimeout( function(){
+      allShoes.clear();
+      allShoes.pushObjects(
+        [
+          { id: 'rainbow',   name: "Rainbow Sandals",
+              price: '$60.00', description: 'San Clemente style' },
+          { id: 'strappy',   name: "Strappy shoes",
+              price: '$300.00', description: 'I heard Pénèlope Cruz say this word once.' },
+          { id: 'bluesuede', name: "Blue Suede",
+              price: '$125.00', description: 'The King would never lie:  TKOB⚡!' }
+        ]
+      );
+    }, 2000);
+
+    return this._listOfShoes;
+  },
+  find:  function(id){
+    return this._listOfShoes.findProperty('id', id);
+  }
 });
 
 App.initialize();
