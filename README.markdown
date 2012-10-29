@@ -1,14 +1,27 @@
 # Halbert
 
 ## TL;DR
+[rbenv]: https://github.com/sstephenson/rbenv
+[rvm]: https://rvm.io/
+[bundler]: http://gembundler.com/
+[issue]: https://github.com/sgharms/Halbert/issues
 
+  1.  Pre-requisites
+    1.  Have a Ruby versioning system in place [rbenv][rbenv] or [rvm][rvm]
+    1.  Have the official `coffee-script` compiler installed  ( [use `node` and `npm`](http://coffeescriptcafe.com/blog/your-mac-osx-coffeescript-development-environment/) or
+        `apt-get install coffeescript` )
+  1.  Ensure your Ruby version management software has [`bundler`][bundler]
   1.  `git clone` the repo
-  1.  `cd Halbert`
     1.  This will create a pristine rvm gemset called "Halbert"
     1.  This will be your root for Halbert operations
+  1.  `cd Halbert`
+  1.  `bundle install` : this will load up Halbert's dependencies like `sinatra`
+      and `slim`
   1.  Start Halbert in one of two formats
     1.  `rake halroku`:  gets a basic Halbert running on heroku
     1.  `rake halbert`:  gets a basic Halbert running at `localhost:4567`
+  1.  Halbert prints a helpful diagnostic on startup.  If you have issues here,
+      please [file an issue][issue] so that I can fix it!
   1.  From here in the browser developer interface you have JQuery and
       you'll see the effects of some of the compiled CoffeeScript code.
       You're ready to explore and hack Javascript, Coffeescript, or CSS
