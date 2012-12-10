@@ -42,6 +42,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rake (10.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rubyzip (0.9.5)
@@ -75,6 +76,7 @@ DEPENDENCIES
   coffee-script
   evergreen
   heroku
+  rake
   sass
   sinatra
   slim
