@@ -2,7 +2,7 @@ doctype 5
 
 head
   header
-    title Halbert:  A Place to Play with Programming
+    title Ember 1.0 Release Candidate
 
     /* Make it look pretty*/
     link href='/stylesheets/setup/bootstrap.css' media='screen' rel='stylesheet' type='text/css'
@@ -14,34 +14,16 @@ head
     - my_css_files.each do |f|
       link href="/stylesheets/custom/#{File.basename f}" media='screen' rel='stylesheet' type='text/css'
 
+    script src='/javascripts/vendor/jquery.js'
+    script src='/javascripts/vendor/handlebars.js'
+    script src='/javascripts/vendor/ember.js'
+    script src='/javascripts/vendor/ember-data.js'
 
-    - if CONFIG::JSLIBRARY == 'JQuery'
-      script src='/javascripts/vendor/jquery.js'
-      script src='/javascripts/vendor/jquery-ui.js'
-      /* No Ember unless you jQuery too */
-      |<script type="text/javascript">
-      | window.ENV = { CP_DEFAULT_CACHEABLE: true, VIEW_PRESERVES_CONTEXT: true};
-      |</script>
-      script src='/javascripts/vendor/handlebars.js'
-      script src='/javascripts/vendor/ember-1.0.pre.js'
+    /* Here is where you define your Ember Javascript classes */
+    script src="/javascripts/custom/application.js"
 
-    /* Here is where your own JS files are loaded */
-    - js_root_dir = File.join(File.dirname(__FILE__), *%w[.. javascripts custom])
-
-    script src="/javascripts/custom/#{File.basename(File.join(js_root_dir, 'application.js'))}"
-
-    - %w(helpers mixins models views controllers).each do |dir|
-      - Dir.glob(File.join(js_root_dir, *[dir, '*'])).each do |file|
-        script src="/javascripts/custom/#{dir}/#{File.basename file}"
-
-    - Dir.glob("#{js_root_dir}/templates/*.handlebars") do |f|
-      == File.read(f)
-
-    /* Here is where your own CSS files are loaded */
-    - custom_css_path = File.join(File.dirname(__FILE__), *%w[.. stylesheets custom])
-    - my_css_files = Dir.glob(File.join(custom_css_path, *['*.css']))
-    - my_css_files.each do |f|
-      link href="/stylesheets/custom/#{File.basename f}"
+    /* Here is where your own CSS goes */
+    link href="/stylesheets/custom/application.css"
 
 body
   == yield
